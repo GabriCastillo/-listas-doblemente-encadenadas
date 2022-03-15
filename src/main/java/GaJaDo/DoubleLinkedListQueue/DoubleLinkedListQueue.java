@@ -14,7 +14,7 @@ public class DoubleLinkedListQueue<T> implements DoubleEndedQueue<T> {
         size=0;
     }
 
-    public void append(DequeNode node) {
+    public void appendLeft(DequeNode node) {
         if(size==0){
             first = node;
             last =node;
@@ -25,7 +25,7 @@ public class DoubleLinkedListQueue<T> implements DoubleEndedQueue<T> {
         size++;
     }
 
-    public void appendLeft(DequeNode node) {
+    public void append(DequeNode node) {
         if (size == 0) {
             first = node;
             last=node;
