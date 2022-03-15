@@ -2,6 +2,8 @@ package GaJaDo.DoubleLinkedListQueue;
 import GaJaDo.Interface.DoubleEndedQueue;
 import GaJaDo.DequeNode.DequeNode;
 
+import java.util.Deque;
+
 public class DoubleLinkedListQueue<T> implements DoubleEndedQueue {
     private DequeNode<T> first,last;
     private int size;
@@ -12,37 +14,42 @@ public class DoubleLinkedListQueue<T> implements DoubleEndedQueue {
         size=0;
     }
 
-    @Override
     public void append(DequeNode node) {
-        
+        if(size==0){
+            first = node;
+        }else{
+
+        }
     }
 
-    @Override
     public void appendLeft(DequeNode node) {
 
+        if (size == 0) {
+            first = node;
+        }else {
+            
+        }
+        last = node;
+        size++;
     }
 
-    @Override
+
     public void deleteFirst() {
 
     }
 
-    @Override
     public void deleteLast() {
 
     }
 
-    @Override
     public DequeNode peekFirst() {
         return null;
     }
 
-    @Override
     public DequeNode peekLast() {
         return null;
     }
 
-    @Override
     public int size(){
         return this.size;
     }
