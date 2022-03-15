@@ -53,7 +53,18 @@ public class DoubleLinkedListQueue<T> implements DoubleEndedQueue<T> {
     }
 
     public void deleteLast() {
-       
+        if(size==0){
+            throw new RuntimeException("No hay elementos");
+        }else{
+            if(last.getPrevious()!=null){
+                last = last.getPrevious();
+                last.setNext(null);
+            }else{
+                last=null;
+            }
+            size--;
+        }
+
     }
 
     public DequeNode peekFirst() {
