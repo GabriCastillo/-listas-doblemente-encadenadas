@@ -12,7 +12,7 @@ public class DoubleLinkedListQueueTest<T> {
 
     @BeforeEach
     public void setup(){
-        dobleListaEnlazada = new DoubleLinkedListQueue<>();
+        dobleListaEnlazada = new DoubleLinkedListQueue<T>();
     }
 
     @AfterEach
