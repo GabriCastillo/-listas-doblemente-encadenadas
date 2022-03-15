@@ -43,15 +43,15 @@ public class DoubleLinkedListQueue<T> implements DoubleEndedQueue<T> {
     }
 
     public void deleteLast() {
-
+       
     }
 
     public DequeNode peekFirst() {
-        return null;
+        return this.first;
     }
 
     public DequeNode peekLast() {
-        return null;
+        return this.last;
     }
 
     public int size(){
