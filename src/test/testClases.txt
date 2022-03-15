@@ -35,3 +35,22 @@ Class: DequeNodeTest
     isNotATerminalNode(firstNode)  -> false
     isNotATerminalNode(middleNode) -> true
     isNotATerminalNode(lastNode)   -> false
+
+Class: DoubleLinkedListQueueTest
+    Test: getListAfterAppendLeftOfOneElement()
+    dobleListaEnlazada.appendLeft(new DequeNode('x',null,null)).size() -> 1
+
+    Test: getListAfterAppendOfOneElement()
+    dobleListaEnlazada.append(new DequeNode('x',null,null)).size() -> 1
+
+    Test: getAEmptyListAfterDeleteFirst()
+    dobleListaEnlazada.appendLeft(new DequeNode('x',null,null)).deleteFirst().size() -> 0
+
+    Test: getAEmptyListAfterDeleteFirst()
+    dobleListaEnlazada.append(new DequeNode('x',null,null)).deleteLast().size() -> 0
+
+    Test: raiseAnExceptionWhenDeleteFirstAnEmptyList()
+    dobleListaEnlazada.deleteFirst() -> throws error
+
+    Test: raiseAnExceptionWhenDeleteLastAnEmptyList()
+    dobleListaEnlazada.deleteLast() -> throws error
