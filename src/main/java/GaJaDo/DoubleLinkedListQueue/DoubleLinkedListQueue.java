@@ -17,6 +17,7 @@ public class DoubleLinkedListQueue<T> implements DoubleEndedQueue<T> {
     public void append(DequeNode node) {
         if(size==0){
             first = node;
+            last =node;
         }else{
            first.setPrevious(node);
         }
@@ -27,6 +28,7 @@ public class DoubleLinkedListQueue<T> implements DoubleEndedQueue<T> {
     public void appendLeft(DequeNode node) {
         if (size == 0) {
             first = node;
+            last=node;
         }else {
             last.setNext(node);
         }
@@ -36,10 +38,18 @@ public class DoubleLinkedListQueue<T> implements DoubleEndedQueue<T> {
 
 
     public void deleteFirst() {
-        if(first.getNext()!=null){
-            first = first.getNext();
-            first.setPrevious(null) ;
+        if(size==0){
+           throw new RuntimeException("No hay elementos");
+        }else{
+            if(first.getNext()!=null){
+                first = first.getNext();
+                first.setPrevious(null) ;
+            }else{
+                first = null;
+            }
+            size--;
         }
+
     }
 
     public void deleteLast() {
