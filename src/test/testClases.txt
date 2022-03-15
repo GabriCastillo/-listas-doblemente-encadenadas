@@ -1,0 +1,33 @@
+Class: DequeNodeTest
+    DequeNode<Integer> firstNode, middleNode, lastNode
+    [1]-[2]-[3]
+
+    Test: getItem()
+    getItem(firstNode)  -> 1
+    getItem(middleNode) -> 2
+    getItem(lastNode)   -> 3
+
+    Test: getNext()
+    getNext(firstNode)  -> middleNode
+    getNext(middleNode) -> lastNode
+    getNext(lastNode)   -> null
+
+    Test: getPrevious()
+    getPrevious(firstNode)  -> null
+    getPrevious(middleNode) -> firstNode
+    getPrevious(lastNode)   -> middleNode
+
+    Test: isFirstNode()
+    isFirstNode(firstNode)  -> true
+    isFirstNode(middleNode) -> false
+    isFirstNode(lastNode)   -> false
+
+    Test: isLastNode()
+    isFirstNode(firstNode)  -> false
+    isFirstNode(middleNode) -> false
+    isFirstNode(lastNode)   -> true
+
+    Test: isNotATerminalNode()
+    isNotATerminalNode(firstNode)  -> false
+    isNotATerminalNode(middleNode) -> true
+    isNotATerminalNode(lastNode)   -> false
