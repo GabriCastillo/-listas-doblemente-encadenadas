@@ -1,3 +1,7 @@
+Gabriel Castillo Salazar
+Raul Doblas Fernandez
+Javier Ramirez Rueda
+
 Class: DequeNodeTest
     DequeNode<Integer> firstNode, middleNode, lastNode
     [1]-[2]-[3]
