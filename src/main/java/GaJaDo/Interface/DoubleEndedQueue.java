@@ -1,3 +1,5 @@
+package GaJaDo.Interface;
+
 import GaJaDo.DequeNode.DequeNode;
 
 public interface DoubleEndedQueue<T> {
