@@ -4,7 +4,7 @@ import GaJaDo.DequeNode.DequeNode;
 
 import java.util.Deque;
 
-public class DoubleLinkedListQueue<T> implements DoubleEndedQueue {
+public class DoubleLinkedListQueue<T> implements DoubleEndedQueue<T> {
     private DequeNode<T> first,last;
     private int size;
 
@@ -18,16 +18,17 @@ public class DoubleLinkedListQueue<T> implements DoubleEndedQueue {
         if(size==0){
             first = node;
         }else{
-
+           first.setPrevious(node);
         }
+        first = node;
+        size++;
     }
 
     public void appendLeft(DequeNode node) {
-
         if (size == 0) {
             first = node;
         }else {
-            
+            last.setNext(node);
         }
         last = node;
         size++;
@@ -35,7 +36,10 @@ public class DoubleLinkedListQueue<T> implements DoubleEndedQueue {
 
 
     public void deleteFirst() {
-
+        if(first.getNext()!=null){
+            first = first.getNext();
+            first.setPrevious(null) ;
+        }
     }
 
     public void deleteLast() {
