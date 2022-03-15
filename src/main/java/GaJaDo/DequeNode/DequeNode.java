@@ -8,10 +8,25 @@ package GaJaDo.DequeNode;
  * @param <T>
  */
 public class DequeNode<T> {
-    private T item ;
-    private DequeNode<T> next ;
-    private DequeNode<T> previous ;
 
+    private T item;
+    private DequeNode<T> next;
+    private DequeNode<T> previous;
+
+    // Setters
+    public void setItem(T item) {
+        this.item = item;
+    }
+
+    public void setNext(DequeNode<T> next) {
+        this.next = next;
+    }
+
+    public void setPrevious(DequeNode<T> previous) {
+        this.previous = previous;
+    }
+
+    // Getters
     public T getItem() {
         return item;
     }
@@ -31,14 +46,14 @@ public class DequeNode<T> {
     }
 
     public boolean isFirstNode() {
-        return previous == null ;
+        return previous == null;
     }
 
     public boolean isLastNode() {
-        return next == null ;
+        return next == null;
     }
 
     public boolean isNotATerminalNode() {
-        return (!isFirstNode() && !isLastNode()) ;
+        return (!isFirstNode() && !isLastNode());
     }
 }

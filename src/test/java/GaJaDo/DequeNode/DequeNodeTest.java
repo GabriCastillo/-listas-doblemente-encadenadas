@@ -9,11 +9,17 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 
 public class DequeNodeTest {
     DequeNode<Integer> firstNode, middleNode, lastNode;
+
     @BeforeEach
     public void setUp() {
-        this.firstNode = new DequeNode<Integer>(1, this.middleNode, null);
-        this.lastNode = new DequeNode<Integer>(3, null, this.middleNode);
-        this.middleNode = new DequeNode<Integer>(2, this.lastNode, this.firstNode);
+        this.firstNode = new DequeNode<>(1, null, null);
+        this.middleNode = new DequeNode<>(2, null, null);
+        this.lastNode = new DequeNode<>(3, null, null);
+
+        this.firstNode.setNext(this.middleNode);
+        this.middleNode.setPrevious(this.firstNode);
+        this.middleNode.setNext(this.lastNode);
+        this.lastNode.setPrevious(this.middleNode);
     }
 
     @AfterEach
