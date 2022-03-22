@@ -33,6 +33,9 @@ Class: DequeNodeTest
     isNotATerminalNode(lastNode)   -> false
 
 Class: DoubleLinkedListQueueTest
+    DoubleLinkedListQueue<T> dobleListaEnlazada
+
+
     Test: getListAfterAppendLeftOfOneElement()
     dobleListaEnlazada.appendLeft(new DequeNode('x',null,null)).size() -> 1
 
@@ -42,7 +45,7 @@ Class: DoubleLinkedListQueueTest
     Test: getAEmptyListAfterDeleteFirst()
     dobleListaEnlazada.appendLeft(new DequeNode('x',null,null)).deleteFirst().size() -> 0
 
-    Test: getAEmptyListAfterDeleteFirst()
+    Test: getAEmptyListAfterDeleteLast()
     dobleListaEnlazada.append(new DequeNode('x',null,null)).deleteLast().size() -> 0
 
     Test: raiseAnExceptionWhenDeleteFirstAnEmptyList()
@@ -50,3 +53,29 @@ Class: DoubleLinkedListQueueTest
 
     Test: raiseAnExceptionWhenDeleteLastAnEmptyList()
     dobleListaEnlazada.deleteLast() -> throws error
+
+    // Complex operations
+
+    Test: findItem(T item)
+
+     raiseAnExceptionWhenFindInAnEmptyList():
+     dobleListaEnlazada.find(1) -> throws error
+
+     raiseAnExceptionWhenFindANullItem():
+     dobleListaEnlazada.find(null) -> throws error
+
+     findNodeWhenIsAtFirstPosition()
+     dobleListaEnlazada <= [1]=[2]=[3]
+     dobleListaEnlazada.find(1) -> [1]
+
+     findNodeWhenIsAtSecondPosition
+     dobleListaEnlazada <= [1]=[2]=[3]
+     dobleListaEnlazada.find(2) -> [2]
+
+     findNodeWhenIsAtThirdPosition
+     dobleListaEnlazada <= [1]=[2]=[3]
+     dobleListaEnlazada.find(3) -> [3]
+
+     findNodeWhenIsNotThereReturnsNull
+     dobleListaEnlazada <= [1]=[2]=[3]
+     dobleListaEnlazada.find(4) -> null
