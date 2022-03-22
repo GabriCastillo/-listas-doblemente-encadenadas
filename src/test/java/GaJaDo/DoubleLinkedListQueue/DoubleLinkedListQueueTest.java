@@ -59,4 +59,29 @@ public class DoubleLinkedListQueueTest<T> {
     public void raiseAnExceptionWhenDeleteLastAnEmptyList(){
         assertThrows(RuntimeException.class,() -> dobleListaEnlazada.deleteFirst());
     }
+
+    @Test
+    public void getThirdNodeOfALinkedList(){
+        DequeNode<T> expectedNode = new DequeNode(3,null,null);
+        dobleListaEnlazada.append(new DequeNode(1,null,null));
+        dobleListaEnlazada.append(new DequeNode(2,null,null));
+        dobleListaEnlazada.append(expectedNode);
+
+        assertEquals(expectedNode,dobleListaEnlazada.getAt(3));
+    }
+
+    @Test
+    public void raiseAnExceptionWhenGetAtOnAEmptyList(){
+        assertThrows(RuntimeException.class, () -> dobleListaEnlazada.getAt(2));
+    }
+
+    @Test
+    public void getFirstNodeOfALinkedList(){
+        DequeNode<T> expectedNode = new DequeNode(1,null,null);
+        dobleListaEnlazada.append(expectedNode);
+        dobleListaEnlazada.append(new DequeNode(2,null,null));
+        dobleListaEnlazada.append(new DequeNode(3,null,null));
+
+        assertEquals(expectedNode,dobleListaEnlazada.getAt(1));
+    }
 }

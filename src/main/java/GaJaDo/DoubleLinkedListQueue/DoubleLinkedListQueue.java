@@ -95,12 +95,14 @@ public class DoubleLinkedListQueue<T> implements DoubleEndedQueue<T> {
                         result = result.getNext();
                     }
                 }
+                if(result==null){
+                    throw new RuntimeException("No está en la lista");
+                }
                 return result;
             }else{
                 return first;
             }
         }
-
     }
 
     public DequeNode<T> find(T item){
@@ -110,7 +112,7 @@ public class DoubleLinkedListQueue<T> implements DoubleEndedQueue<T> {
     public void delete(DequeNode<T> node){
 
     }
-    
+
     public void sort(Comparator<?> comparator) {
 
     }
