@@ -1,4 +1,5 @@
 package GaJaDo.DoubleLinkedListQueue;
+
 import GaJaDo.Interface.DoubleEndedQueue;
 import GaJaDo.DequeNode.DequeNode;
 
@@ -6,21 +7,21 @@ import java.util.Comparator;
 import java.util.Deque;
 
 public class DoubleLinkedListQueue<T> implements DoubleEndedQueue<T> {
-    private DequeNode<T> first,last;
+    private DequeNode<T> first, last;
     private int size;
 
-    public DoubleLinkedListQueue(){
-        first=null;
-        last=null;
-        size=0;
+    public DoubleLinkedListQueue() {
+        first = null;
+        last = null;
+        size = 0;
     }
 
     public void appendLeft(DequeNode node) {
-        if(size==0){
+        if (size == 0) {
             first = node;
-            last =node;
-        }else{
-           first.setPrevious(node);
+            last = node;
+        } else {
+            first.setPrevious(node);
         }
         first = node;
         size++;
@@ -29,8 +30,8 @@ public class DoubleLinkedListQueue<T> implements DoubleEndedQueue<T> {
     public void append(DequeNode node) {
         if (size == 0) {
             first = node;
-            last=node;
-        }else {
+            last = node;
+        } else {
             last.setNext(node);
         }
         last = node;
@@ -39,13 +40,13 @@ public class DoubleLinkedListQueue<T> implements DoubleEndedQueue<T> {
 
 
     public void deleteFirst() {
-        if(size==0){
-           throw new RuntimeException("No hay elementos");
-        }else{
-            if(first.getNext()!=null){
+        if (size == 0) {
+            throw new RuntimeException("No hay elementos");
+        } else {
+            if (first.getNext() != null) {
                 first = first.getNext();
-                first.setPrevious(null) ;
-            }else{
+                first.setPrevious(null);
+            } else {
                 first = null;
             }
             size--;
@@ -54,14 +55,14 @@ public class DoubleLinkedListQueue<T> implements DoubleEndedQueue<T> {
     }
 
     public void deleteLast() {
-        if(size==0){
+        if (size == 0) {
             throw new RuntimeException("No hay elementos");
-        }else{
-            if(last.getPrevious()!=null){
+        } else {
+            if (last.getPrevious() != null) {
                 last = last.getPrevious();
                 last.setNext(null);
-            }else{
-                last=null;
+            } else {
+                last = null;
             }
             size--;
         }
@@ -76,7 +77,7 @@ public class DoubleLinkedListQueue<T> implements DoubleEndedQueue<T> {
         return this.last;
     }
 
-    public int size(){
+    public int size() {
         return this.size;
     }
 
@@ -87,7 +88,26 @@ public class DoubleLinkedListQueue<T> implements DoubleEndedQueue<T> {
 
 
     public DequeNode<T> find(T item) {
-        return null;
+        DequeNode node = null;
+        boolean find = false;
+
+        while (!find) {
+
+            if (this.peekFirst().getItem() == item) {
+                node = this.peekFirst();
+                find = true;
+            } else if(this.peekFirst().getItem() == item){
+                node = this.peekLast();
+                find = true;
+            }else{
+
+            }
+
+
+        }
+
+
+        return node;
     }
 
 
@@ -95,7 +115,7 @@ public class DoubleLinkedListQueue<T> implements DoubleEndedQueue<T> {
 
     }
 
-    
+
     public void sort(Comparator<?> comparator) {
 
     }
