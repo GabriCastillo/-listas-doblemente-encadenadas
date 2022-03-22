@@ -64,6 +64,18 @@ public class DoubleLinkedListQueueTest<T>  {
     }
 
     @Test
+    public void raiseAnExceptionWhenFindInAnEmptyList(){
+        T a = null;
+        assertThrows(RuntimeException.class,() -> dobleListaEnlazada.find(a));
+    }
+
+    @Test
+    public void raiseAnExceptionWhenFindANullItem(){
+        T a = null;
+        assertThrows(RuntimeException.class,() -> dobleListaEnlazada.find(a));
+    }
+
+    @Test
     public void getThirdNodeOfALinkedList(){
         DequeNode<T> expectedNode = new DequeNode(3,null,null);
         dobleListaEnlazada.append(new DequeNode(1,null,null));
@@ -87,6 +99,7 @@ public class DoubleLinkedListQueueTest<T>  {
 
         assertEquals(expectedNode,dobleListaEnlazada.getAt(1));
     }
+
 /*
     @Test
     public void getA() {
@@ -102,4 +115,36 @@ public class DoubleLinkedListQueueTest<T>  {
         assertEquals(expectedList, dobleListaEnlazada.sort(Comparator <T>));
     }
 */
+
+
+    @Test
+    public void getNodeWhenIsAtFirstPosition(){
+        DequeNode<T> expectedNode = new DequeNode(1,null,null);
+        dobleListaEnlazada.append(expectedNode);
+        dobleListaEnlazada.append(new DequeNode(2,null,null));
+        dobleListaEnlazada.append(new DequeNode(3,null,null));
+
+        assertEquals(expectedNode,dobleListaEnlazada.find(expectedNode.getItem()));
+    }
+
+    @Test
+    public void getNodeWhenIsAtSecondPosition(){
+        DequeNode<T> expectedNode = new DequeNode(2,null,null);
+        dobleListaEnlazada.append(new DequeNode(1,null,null));
+        dobleListaEnlazada.append(expectedNode);
+        dobleListaEnlazada.append(new DequeNode(3,null,null));
+
+        assertEquals(expectedNode,dobleListaEnlazada.find(expectedNode.getItem()));
+    }
+
+    @Test
+    public void getNodeWhenIsAtThirdPosition(){
+        DequeNode<T> expectedNode = new DequeNode(3,null,null);
+        dobleListaEnlazada.append(new DequeNode(1,null,null));
+        dobleListaEnlazada.append(new DequeNode(2,null,null));
+        dobleListaEnlazada.append(expectedNode);
+
+        assertEquals(expectedNode,dobleListaEnlazada.find(expectedNode.getItem()));
+    }
+
 }
