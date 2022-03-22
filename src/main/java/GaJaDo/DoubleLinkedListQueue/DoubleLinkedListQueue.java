@@ -2,6 +2,7 @@ package GaJaDo.DoubleLinkedListQueue;
 import GaJaDo.Interface.DoubleEndedQueue;
 import GaJaDo.DequeNode.DequeNode;
 
+import java.util.Comparator;
 import java.util.Deque;
 
 public class DoubleLinkedListQueue<T> implements DoubleEndedQueue<T> {
@@ -77,5 +78,25 @@ public class DoubleLinkedListQueue<T> implements DoubleEndedQueue<T> {
 
     public int size(){
         return this.size;
+    }
+
+
+    public DequeNode<T> getAt(int position) {
+        return null;
+    }
+
+
+    public DequeNode<T> find(T item) {
+        return null;
+    }
+
+
+    public void delete(DequeNode<T> node) {
+
+    }
+
+    
+    public void sort(Comparator<?> comparator) {
+
     }
 }
