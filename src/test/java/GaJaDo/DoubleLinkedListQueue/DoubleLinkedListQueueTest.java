@@ -5,14 +5,11 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-<<<<<<< Updated upstream
 import java.util.Comparator;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
-=======
 import static org.junit.jupiter.api.Assertions.*;
->>>>>>> Stashed changes
 
 public class DoubleLinkedListQueueTest<T>  {
     private DoubleLinkedListQueue<T> dobleListaEnlazada;
@@ -153,8 +150,7 @@ public class DoubleLinkedListQueueTest<T>  {
         assertEquals(expectedNode,dobleListaEnlazada.find(expectedNode.getItem()));
     }
 
-<<<<<<< Updated upstream
-=======
+
     @Test
     public void findNodeWhenIsNotThereReturnsNull(){
         DequeNode<T> expectedNode = new DequeNode(4,null,null);
@@ -165,5 +161,5 @@ public class DoubleLinkedListQueueTest<T>  {
         assertNull(dobleListaEnlazada.find(expectedNode.getItem()));
 
     }
->>>>>>> Stashed changes
+
 }
