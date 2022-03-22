@@ -109,6 +109,9 @@ public class DoubleLinkedListQueue<T> implements DoubleEndedQueue<T> {
         if (this.size < 1) {
             throw new RuntimeException("Lista nula");
         }
+        if(item==null){
+            throw new RuntimeException("item nulo");
+        }
 
         DequeNode node = null;
         DequeNode aux = first;

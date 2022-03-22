@@ -59,4 +59,17 @@ public class DoubleLinkedListQueueTest<T> {
     public void raiseAnExceptionWhenDeleteLastAnEmptyList(){
         assertThrows(RuntimeException.class,() -> dobleListaEnlazada.deleteFirst());
     }
+
+    @Test
+    public void raiseAnExceptionWhenFindInAnEmptyList(){
+        T a = null;
+        assertThrows(RuntimeException.class,() -> dobleListaEnlazada.find(a));
+    }
+
+    @Test
+    public void raiseAnExceptionWhenFindANullItem(){
+        T a = null;
+        assertThrows(RuntimeException.class,() -> dobleListaEnlazada.find(a));
+    }
+
 }
