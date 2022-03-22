@@ -145,12 +145,18 @@ public class DoubleLinkedListQueue<T> implements DoubleEndedQueue<T> {
             throw new RuntimeException("Lista vacia");
         }else{
             DequeNode<T> aux=first;
-            DequeNode<T> node=first.getNext();
+            DequeNode<T> nextNode=null;
+            DequeNode<T> temp = null;
             while(aux!=null){
-                if(comparator.compare(aux.getItem(),node.getItem())>=0){
-                    
+                nextNode = aux.getNext();
+                while (nextNode!=null){
+                    if(comparator.compare(aux.getItem(),nextNode.getItem())>=0){
+                        temp = aux;
+                        aux = nextNode;
+                    }
+                    nextNode=nextNode.getNext();
                 }
-
+                aux=aux.getNext();
             }
         }
     }

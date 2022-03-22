@@ -4,10 +4,13 @@ import GaJaDo.DequeNode.DequeNode;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import java.util.Comparator;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public class DoubleLinkedListQueueTest<T> {
+public class DoubleLinkedListQueueTest<T>  {
     private DoubleLinkedListQueue<T> dobleListaEnlazada;
 
     @BeforeEach
@@ -84,4 +87,19 @@ public class DoubleLinkedListQueueTest<T> {
 
         assertEquals(expectedNode,dobleListaEnlazada.getAt(1));
     }
+/*
+    @Test
+    public void getA() {
+        DoubleLinkedListQueue expectedList = new DoubleLinkedListQueue();
+        expectedList.append(new DequeNode(1, null, null));
+        expectedList.append(new DequeNode(3, null, null));
+        expectedList.append(new DequeNode(2, null, null));
+
+        dobleListaEnlazada.append(new DequeNode(1, null, null));
+        dobleListaEnlazada.append(new DequeNode(3, null, null));
+        dobleListaEnlazada.append(new DequeNode(2, null, null));
+
+        assertEquals(expectedList, dobleListaEnlazada.sort(Comparator <T>));
+    }
+*/
 }
