@@ -80,23 +80,40 @@ public class DoubleLinkedListQueue<T> implements DoubleEndedQueue<T> {
         return this.size;
     }
 
+    public DequeNode<T> getAt(int position){
+        if(this.size<1){
+           throw new RuntimeException("Lista nula");
+        }else{
+            boolean founded=false;
+            if(position != 1){
+                DequeNode<T> result= first;
+                while( !founded || result.getNext()!=null ){
+                    position--;
+                    if(position==0){
+                        founded = true;
+                    }else{
+                        result = result.getNext();
+                    }
+                }
+                return result;
+            }else{
+                return first;
+            }
+        }
 
-    public DequeNode<T> getAt(int position) {
+    }
+
+    public DequeNode<T> find(T item){
         return null;
     }
 
-
-    public DequeNode<T> find(T item) {
-        return null;
-    }
-
-
-    public void delete(DequeNode<T> node) {
+    public void delete(DequeNode<T> node){
 
     }
-
     
     public void sort(Comparator<?> comparator) {
 
     }
+
+
 }
