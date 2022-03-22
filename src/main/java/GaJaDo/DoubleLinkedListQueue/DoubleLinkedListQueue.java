@@ -138,12 +138,23 @@ public class DoubleLinkedListQueue<T> implements DoubleEndedQueue<T> {
 
 
     }
-    
+
     public void delete(DequeNode<T> node) {
 
     }
 
-    public void sort(Comparator<?> comparator) {
+    public void sort(Comparator<T> comparator) {
+        if(this.size<1){
+            throw new RuntimeException("Lista vacia");
+        }else{
+            DequeNode<T> aux=first;
+            DequeNode<T> node=first.getNext();
+            while(aux!=null){
+                if(comparator.compare(aux.getItem(),node.getItem())>=0){
+                    
+                }
 
+            }
+        }
     }
 }
