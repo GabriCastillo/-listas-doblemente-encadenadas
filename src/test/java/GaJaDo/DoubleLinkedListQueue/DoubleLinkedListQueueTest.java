@@ -72,6 +72,7 @@ public class DoubleLinkedListQueueTest<T> {
         assertThrows(RuntimeException.class,() -> dobleListaEnlazada.find(a));
     }
 
+    @Test
     public void getThirdNodeOfALinkedList(){
         DequeNode<T> expectedNode = new DequeNode(3,null,null);
         dobleListaEnlazada.append(new DequeNode(1,null,null));
@@ -94,5 +95,35 @@ public class DoubleLinkedListQueueTest<T> {
         dobleListaEnlazada.append(new DequeNode(3,null,null));
 
         assertEquals(expectedNode,dobleListaEnlazada.getAt(1));
+    }
+
+    @Test
+    public void getNodeWhenIsAtFirstPosition(){
+        DequeNode<T> expectedNode = new DequeNode(1,null,null);
+        dobleListaEnlazada.append(expectedNode);
+        dobleListaEnlazada.append(new DequeNode(2,null,null));
+        dobleListaEnlazada.append(new DequeNode(3,null,null));
+
+        assertEquals(expectedNode,dobleListaEnlazada.find(expectedNode.getItem()));
+    }
+
+    @Test
+    public void getNodeWhenIsAtSecondPosition(){
+        DequeNode<T> expectedNode = new DequeNode(2,null,null);
+        dobleListaEnlazada.append(new DequeNode(1,null,null));
+        dobleListaEnlazada.append(expectedNode);
+        dobleListaEnlazada.append(new DequeNode(3,null,null));
+
+        assertEquals(expectedNode,dobleListaEnlazada.find(expectedNode.getItem()));
+    }
+
+    @Test
+    public void getNodeWhenIsAtThirdPosition(){
+        DequeNode<T> expectedNode = new DequeNode(3,null,null);
+        dobleListaEnlazada.append(new DequeNode(1,null,null));
+        dobleListaEnlazada.append(new DequeNode(2,null,null));
+        dobleListaEnlazada.append(expectedNode);
+
+        assertEquals(expectedNode,dobleListaEnlazada.find(expectedNode.getItem()));
     }
 }
