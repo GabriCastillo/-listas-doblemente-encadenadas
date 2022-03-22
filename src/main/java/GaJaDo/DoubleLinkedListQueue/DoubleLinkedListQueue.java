@@ -17,56 +17,58 @@ public class DoubleLinkedListQueue<T> implements DoubleEndedQueue<T> {
     }
 
     public void appendLeft(DequeNode node) {
-        if (size == 0) {
-            first = node;
-            last = node;
+        if(size == 0) {
+            this.first = node;
+            this.last = node;
         } else {
-            first.setPrevious(node);
+            node.setNext(this.first);
+            this.first.setPrevious(node);
         }
-        first = node;
-        size++;
+        this.first = node;
+        ++this.size;
     }
 
     public void append(DequeNode node) {
-        if (size == 0) {
-            first = node;
-            last = node;
+        if(size == 0) {
+            this.first = node;
+            this.last = node;
         } else {
-            last.setNext(node);
+            node.setPrevious(this.last);
+            this.last.setNext(node);
         }
-        last = node;
-        size++;
+        this.last = node;
+        ++this.size;
     }
 
 
     public void deleteFirst() {
-        if (size == 0) {
+        if(size == 0) {
             throw new RuntimeException("No hay elementos");
-        } else {
-            if (first.getNext() != null) {
-                first = first.getNext();
-                first.setPrevious(null);
-            } else {
-                first = null;
-            }
-            size--;
         }
 
+        if(first.getNext() != null) {
+            first = first.getNext();
+            first.setPrevious(null);
+        } else {
+            first = null;
+            last = null;
+        }
+        --this.size;
     }
 
     public void deleteLast() {
-        if (size == 0) {
+        if(size == 0) {
             throw new RuntimeException("No hay elementos");
-        } else {
-            if (last.getPrevious() != null) {
-                last = last.getPrevious();
-                last.setNext(null);
-            } else {
-                last = null;
-            }
-            size--;
         }
 
+        if(last.getPrevious() != null) {
+            last = last.getPrevious();
+            last.setNext(null);
+        } else {
+            first = null;
+            last = null;
+        }
+        --this.size;
     }
 
     public DequeNode peekFirst() {
@@ -82,28 +84,20 @@ public class DoubleLinkedListQueue<T> implements DoubleEndedQueue<T> {
     }
 
     public DequeNode<T> getAt(int position) {
-        if (this.size < 1) {
-            throw new RuntimeException("Lista nula");
-        } else {
-            boolean founded = false;
-            if (position != 1) {
-                DequeNode<T> result = first;
-                while (!founded || result.getNext() != null) {
-                    position--;
-                    if (position == 0) {
-                        founded = true;
-                    } else {
-                        result = result.getNext();
-                    }
-                }
-                if(result==null){
-                    throw new RuntimeException("No está en la lista");
-                }
-                return result;
-            } else {
-                return first;
-            }
+        if(position <= 0 || this.size < position) {
+            throw new RuntimeException("Posición no válida para esta lista.");
         }
+
+        DequeNode<T> current = this.first;
+        int currentPosition = 1;
+        while(current != null) {
+            if(currentPosition == position) {
+                break;
+            }
+            ++currentPosition;
+            current = current.getNext();
+        }
+        return current;
     }
 
 
@@ -140,7 +134,25 @@ public class DoubleLinkedListQueue<T> implements DoubleEndedQueue<T> {
     }
 
     public void delete(DequeNode<T> node) {
+        if(this.peekFirst() == null) {
+            throw new RuntimeException("No hay elementos.");
+        }
 
+        if(this.peekFirst() == node) {
+            this.deleteFirst();
+        } else if(this.peekLast() == node) {
+            this.deleteLast();
+        } else {
+            if(node.getNext() != null) {
+                node.getNext().setPrevious(node.getPrevious());
+            }
+
+            if(node.getPrevious() != null) {
+                node.getPrevious().setNext(node.getNext());
+            }
+
+            --this.size;
+        }
     }
 
     public void sort(Comparator<T> comparator) {

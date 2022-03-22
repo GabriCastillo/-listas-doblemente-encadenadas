@@ -162,4 +162,101 @@ public class DoubleLinkedListQueueTest<T>  {
 
     }
 
+    /**
+      * delete()
+      *
+      **/
+
+    @Test
+    public void deleteFromNullDequeShouldThrowException(){
+        assertThrows(RuntimeException.class,() -> dobleListaEnlazada.delete(new DequeNode<>(null, null, null)));
+    }
+
+    @Test
+    public void deleteOnlyElementOf1ShouldReturnEmptyDeque(){
+        //GIVEN
+        DequeNode<Integer> firstNode = new DequeNode<>(1, null, null);
+        dobleListaEnlazada.append(firstNode);
+
+        //WHEN
+        dobleListaEnlazada.delete(dobleListaEnlazada.getAt(1));
+
+        //THEN
+        assertNull(dobleListaEnlazada.peekFirst());
+        assertNull(dobleListaEnlazada.peekLast());
+        assertEquals(0, dobleListaEnlazada.size());
+    }
+
+    @Test
+    public void deleteFirstElementOf123ShouldReturn23(){
+        //GIVEN
+        DequeNode<Integer> firstNode = new DequeNode<>(1, null, null);
+        DequeNode<Integer> middleNode = new DequeNode<>(2, null, null);
+        DequeNode<Integer> lastNode = new DequeNode<>(3, null, null);
+
+        dobleListaEnlazada.append(firstNode);
+        dobleListaEnlazada.append(middleNode);
+        dobleListaEnlazada.append(lastNode);
+
+        //WHEN
+        dobleListaEnlazada.delete(dobleListaEnlazada.getAt(1));
+        middleNode.setNext(lastNode);
+        lastNode.setPrevious(middleNode);
+
+        //THEN
+        assertEquals(middleNode, dobleListaEnlazada.peekFirst());
+        assertEquals(lastNode, dobleListaEnlazada.peekLast());
+        assertEquals(3, dobleListaEnlazada.getAt(2).getItem());
+
+        assertEquals(2, dobleListaEnlazada.size());
+    }
+
+    @Test
+    public void deleteSecondElementOf123ShouldReturn13(){
+        //GIVEN
+        DequeNode<Integer> firstNode = new DequeNode<>(1, null, null);
+        DequeNode<Integer> middleNode = new DequeNode<>(2, null, null);
+        DequeNode<Integer> lastNode = new DequeNode<>(3, null, null);
+
+        dobleListaEnlazada.append(firstNode);
+        dobleListaEnlazada.append(middleNode);
+        dobleListaEnlazada.append(lastNode);
+
+        //WHEN
+        dobleListaEnlazada.delete(dobleListaEnlazada.getAt(2));
+        firstNode.setNext(lastNode);
+        lastNode.setPrevious(firstNode);
+
+        //THEN
+        assertEquals(firstNode, dobleListaEnlazada.peekFirst());
+        assertEquals(lastNode, dobleListaEnlazada.peekLast());
+        assertEquals(3, dobleListaEnlazada.getAt(2).getItem());
+
+        assertEquals(2, dobleListaEnlazada.size());
+    }
+
+    @Test
+    public void deleteThirdElementOf123ShouldReturn12(){
+        //GIVEN
+        DequeNode<Integer> firstNode = new DequeNode<>(1, null, null);
+        DequeNode<Integer> middleNode = new DequeNode<>(2, null, null);
+        DequeNode<Integer> lastNode = new DequeNode<>(3, null, null);
+
+        dobleListaEnlazada.append(firstNode);
+        dobleListaEnlazada.append(middleNode);
+        dobleListaEnlazada.append(lastNode);
+
+        //WHEN
+        dobleListaEnlazada.delete(dobleListaEnlazada.getAt(3));
+        firstNode.setNext(middleNode);
+        middleNode.setPrevious(firstNode);
+
+        //THEN
+        assertEquals(firstNode, dobleListaEnlazada.peekFirst());
+        assertEquals(middleNode, dobleListaEnlazada.peekLast());
+        assertEquals(2, dobleListaEnlazada.getAt(2).getItem());
+
+        assertEquals(2, dobleListaEnlazada.size());
+    }
+
 }
