@@ -32,6 +32,15 @@ public class DoubleLinkedListQueueTest<T>  {
     }
 
     @Test
+    public void getListAfterAppendLeftOfThreeElement(){
+        int expectedValue = 3;
+        dobleListaEnlazada.appendLeft(new DequeNode('x',null,null));
+        dobleListaEnlazada.appendLeft(new DequeNode('y',null,null));
+        dobleListaEnlazada.appendLeft(new DequeNode('w',null,null));
+        assertEquals(expectedValue,dobleListaEnlazada.size());
+    }
+
+    @Test
     public void getListAfterAppendOfOneElement(){
         int expectedValue = 1;
         dobleListaEnlazada.append(new DequeNode('x',null,null));
@@ -132,8 +141,7 @@ public class DoubleLinkedListQueueTest<T>  {
 
     @Test
     public void raiseAnExceptionWhenFindANullItem(){
-        T a = null;
-        assertThrows(RuntimeException.class,() -> dobleListaEnlazada.find(a));
+        assertThrows(RuntimeException.class,() -> dobleListaEnlazada.find(null));
     }
 
     @Test
@@ -273,6 +281,11 @@ public class DoubleLinkedListQueueTest<T>  {
         assertEquals(2, dobleListaEnlazada.getAt(2).getItem());
 
         assertEquals(2, dobleListaEnlazada.size());
+    }
+
+    @Test
+    public void raiseAnExceptionDeleteLastEmptyList(){
+        assertThrows(RuntimeException.class,()->dobleListaEnlazada.deleteLast());
     }
 
     /**

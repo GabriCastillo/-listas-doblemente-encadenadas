@@ -102,11 +102,8 @@ public class DoubleLinkedListQueue<T> implements DoubleEndedQueue<T> {
 
 
     public DequeNode<T> find(T item) {
-        if (this.size < 1) {
-            throw new RuntimeException("Lista nula");
-        }
-        if(item==null){
-            throw new RuntimeException("item nulo");
+        if (this.size < 1 || item == null) {
+            throw new RuntimeException("Parametro introducido no valido");
         }
 
         DequeNode node = null;
