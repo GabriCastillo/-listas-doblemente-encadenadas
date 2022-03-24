@@ -281,7 +281,15 @@ public class DoubleLinkedListQueueTest<T>  {
      **/
 
     @Test
-    public void ordenar(){
+    public void sortingEmptyListThrowsException(){
+
+        ordenarNodoPorOrdenNatural comparator = new ordenarNodoPorOrdenNatural();
+
+        assertThrows(RuntimeException.class,() -> dobleListaEnlazada.sort((Comparator<T>) comparator));
+    }
+
+    @Test
+    public void sortingList213Returns123(){
         //GIVEN
         DequeNode<Integer> firstNode = new DequeNode<>(2, null, null);
         DequeNode<Integer> middleNode = new DequeNode<>(1, null, null);
@@ -299,9 +307,6 @@ public class DoubleLinkedListQueueTest<T>  {
         assertEquals(1, dobleListaEnlazada.peekFirst().getItem());
         assertEquals(2, dobleListaEnlazada.getAt(2).getItem());
         assertEquals(3, dobleListaEnlazada.peekLast().getItem());
-
-
-
     }
 
 }
