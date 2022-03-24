@@ -46,6 +46,14 @@ Class: DoubleLinkedListQueueTest
     Test: getListAfterAppendOfOneElement()
     dobleListaEnlazada.append(new DequeNode('x',null,null)).size() -> 1
 
+    Test: getListAfterAppendOfOneElement()
+    dobleListaEnlazada.append(new DequeNode('x',null,null))
+    .append(new DequeNode('y',null,null))
+    .append(new DequeNode('w',null,null)).size() -> 3
+
+    Test: raiseAnExceptionDeleteLastEmptyList()
+    dobleListaEnlazada.deleteLast() -> error
+
     Test: getAEmptyListAfterDeleteFirst()
     dobleListaEnlazada.appendLeft(new DequeNode('x',null,null)).deleteFirst().size() -> 0
 
