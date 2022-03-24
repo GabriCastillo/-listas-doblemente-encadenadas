@@ -66,17 +66,6 @@ public class DoubleLinkedListQueueTest<T>  {
 
     // Complex operations
 
-    @Test
-    public void raiseAnExceptionWhenFindInAnEmptyList(){
-        T a = null;
-        assertThrows(RuntimeException.class,() -> dobleListaEnlazada.find(a));
-    }
-
-    @Test
-    public void raiseAnExceptionWhenFindANullItem(){
-        T a = null;
-        assertThrows(RuntimeException.class,() -> dobleListaEnlazada.find(a));
-    }
 
     @Test
     public void getThirdNodeOfALinkedList(){
@@ -119,6 +108,22 @@ public class DoubleLinkedListQueueTest<T>  {
     }
 */
 
+    /**
+     * find(T item)
+     *
+     **/
+
+    @Test
+    public void raiseAnExceptionWhenFindInAnEmptyList(){
+        T a = null;
+        assertThrows(RuntimeException.class,() -> dobleListaEnlazada.find(a));
+    }
+
+    @Test
+    public void raiseAnExceptionWhenFindANullItem(){
+        T a = null;
+        assertThrows(RuntimeException.class,() -> dobleListaEnlazada.find(a));
+    }
 
     @Test
     public void findNodeWhenIsAtFirstPosition(){
@@ -162,7 +167,7 @@ public class DoubleLinkedListQueueTest<T>  {
 
     }
 
-    /**
+      /**
       * delete()
       *
       **/
