@@ -264,4 +264,33 @@ public class DoubleLinkedListQueueTest<T>  {
         assertEquals(2, dobleListaEnlazada.size());
     }
 
+    /**
+     * sort()
+     *
+     **/
+
+    @Test
+    public void ordenar(){
+        //GIVEN
+        DequeNode<Integer> firstNode = new DequeNode<>(2, null, null);
+        DequeNode<Integer> middleNode = new DequeNode<>(1, null, null);
+        DequeNode<Integer> lastNode = new DequeNode<>(3, null, null);
+
+        dobleListaEnlazada.append(firstNode);
+        dobleListaEnlazada.append(middleNode);
+        dobleListaEnlazada.append(lastNode);
+        ordenarNodoPorOrdenNatural comparator = new ordenarNodoPorOrdenNatural();
+
+        //WHEN
+        dobleListaEnlazada.sort((Comparator<T>) comparator);
+
+        //THEN
+        assertEquals(1, dobleListaEnlazada.peekFirst().getItem());
+        assertEquals(2, dobleListaEnlazada.getAt(2).getItem());
+        assertEquals(3, dobleListaEnlazada.peekLast().getItem());
+
+
+
+    }
+
 }
