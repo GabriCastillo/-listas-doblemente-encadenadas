@@ -66,6 +66,9 @@ public class DoubleLinkedListQueueTest<T>  {
 
     // Complex operations
 
+    /**
+     * getAt()
+     */
 
     @Test
     public void getThirdNodeOfALinkedList(){
@@ -78,11 +81,6 @@ public class DoubleLinkedListQueueTest<T>  {
     }
 
     @Test
-    public void raiseAnExceptionWhenGetAtOnAEmptyList(){
-        assertThrows(RuntimeException.class, () -> dobleListaEnlazada.getAt(2));
-    }
-
-    @Test
     public void getFirstNodeOfALinkedList(){
         DequeNode<T> expectedNode = new DequeNode(1,null,null);
         dobleListaEnlazada.append(expectedNode);
@@ -91,7 +89,20 @@ public class DoubleLinkedListQueueTest<T>  {
 
         assertEquals(expectedNode,dobleListaEnlazada.getAt(1));
     }
+    @Test
+    public void raiseAnExceptionWhenGetANodeOutOfBounds(){
+        dobleListaEnlazada.append(new DequeNode(1,null,null));
+        dobleListaEnlazada.append(new DequeNode(2,null,null));
+        dobleListaEnlazada.append(new DequeNode(3,null,null));
 
+        assertThrows(RuntimeException.class, () -> dobleListaEnlazada.getAt(4));
+    }
+
+    @Test
+    public void raiseAnExceptionWhenGetAtOnAEmptyList(){
+        assertThrows(RuntimeException.class, () -> dobleListaEnlazada.getAt(2));
+    }
+    
 /*
     @Test
     public void getA() {
