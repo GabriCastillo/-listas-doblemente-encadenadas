@@ -54,7 +54,27 @@ Class: DoubleLinkedListQueueTest
     Test: raiseAnExceptionWhenDeleteLastAnEmptyList()
     dobleListaEnlazada.deleteLast() -> throws error
 
+    Test: raiseAnExceptionWhenGetANodeOutOfBounds()
+    dobleListaEnlazada.getAt(n+1) -> throws error
+
+    Test: raiseAnExceptionWhenGetAtOnAEmptyList()
+    dobleListaEnlazada.getAt(2) -> throws error
+
+    Test: getThirdNodeOfALinkedList()
+    dobleListaEnlazada.getAt(3) -> DequeNode(3,null,null)
+
+    Test: getFirstNodeOfALinkedList()
+    dobleListaEnlazada.getAt(1) -> DequeNode(1,null,null)
+
     // Complex operations
+
+    Test: getAt(int position)
+        from [],          getAt(1)  -> error
+        from [1],         getAt()   -> error
+        from [1]-[2]-[3], getAt(1)  -> [1]
+        from [1]-[2]-[3], getAt(2)  -> [2]
+        from [1]-[2]-[3], getAt(3)  -> [3]
+        from [1]-[2]-[3], find(4)  -> error
 
     Test: findItem(T item)
         from [],          find(1)  -> error
