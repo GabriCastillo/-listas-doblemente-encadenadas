@@ -76,7 +76,7 @@ Class: DoubleLinkedListQueueTest
         from [1]-[2]-[3], getAt(1)  -> [1]
         from [1]-[2]-[3], getAt(2)  -> [2]
         from [1]-[2]-[3], getAt(3)  -> [3]
-        from [1]-[2]-[3], find(4)  -> error
+        from [1]-[2]-[3], find(4)   -> error
 
 
     Test: findItem(T item)
