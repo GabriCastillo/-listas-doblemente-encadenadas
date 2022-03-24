@@ -131,7 +131,6 @@ public class DoubleLinkedListQueue<T> implements DoubleEndedQueue<T> {
             return null;
         }
 
-
     }
 
     public void delete(DequeNode<T> node) {
