@@ -141,6 +141,13 @@ public class DoubleLinkedListQueueTest<T>  {
 
     @Test
     public void raiseAnExceptionWhenFindANullItem(){
+
+
+        dobleListaEnlazada.append(new DequeNode(1,null,null));
+        dobleListaEnlazada.append(new DequeNode(2,null,null));
+        dobleListaEnlazada.append(new DequeNode(3,null,null));
+
+
         assertThrows(RuntimeException.class,() -> dobleListaEnlazada.find(null));
     }
 
@@ -188,7 +195,6 @@ public class DoubleLinkedListQueueTest<T>  {
 
       /**
       * delete()
-      *
       **/
 
     @Test
@@ -307,6 +313,111 @@ public class DoubleLinkedListQueueTest<T>  {
         DequeNode<Integer> firstNode = new DequeNode<>(2, null, null);
         DequeNode<Integer> middleNode = new DequeNode<>(1, null, null);
         DequeNode<Integer> lastNode = new DequeNode<>(3, null, null);
+
+        dobleListaEnlazada.append(firstNode);
+        dobleListaEnlazada.append(middleNode);
+        dobleListaEnlazada.append(lastNode);
+        ordenarNodoPorOrdenNatural comparator = new ordenarNodoPorOrdenNatural();
+
+        //WHEN
+        dobleListaEnlazada.sort((Comparator<T>) comparator);
+
+        //THEN
+        assertEquals(1, dobleListaEnlazada.peekFirst().getItem());
+        assertEquals(2, dobleListaEnlazada.getAt(2).getItem());
+        assertEquals(3, dobleListaEnlazada.peekLast().getItem());
+    }
+
+    @Test
+    public void sortingList123Returns123(){
+        //GIVEN
+        DequeNode<Integer> firstNode = new DequeNode<>(1, null, null);
+        DequeNode<Integer> middleNode = new DequeNode<>(2, null, null);
+        DequeNode<Integer> lastNode = new DequeNode<>(3, null, null);
+
+        dobleListaEnlazada.append(firstNode);
+        dobleListaEnlazada.append(middleNode);
+        dobleListaEnlazada.append(lastNode);
+        ordenarNodoPorOrdenNatural comparator = new ordenarNodoPorOrdenNatural();
+
+        //WHEN
+        dobleListaEnlazada.sort((Comparator<T>) comparator);
+
+        //THEN
+        assertEquals(1, dobleListaEnlazada.peekFirst().getItem());
+        assertEquals(2, dobleListaEnlazada.getAt(2).getItem());
+        assertEquals(3, dobleListaEnlazada.peekLast().getItem());
+    }
+
+    @Test
+    public void sortingList321Returns123(){
+        //GIVEN
+        DequeNode<Integer> firstNode = new DequeNode<>(3, null, null);
+        DequeNode<Integer> middleNode = new DequeNode<>(2, null, null);
+        DequeNode<Integer> lastNode = new DequeNode<>(1, null, null);
+
+        dobleListaEnlazada.append(firstNode);
+        dobleListaEnlazada.append(middleNode);
+        dobleListaEnlazada.append(lastNode);
+        ordenarNodoPorOrdenNatural comparator = new ordenarNodoPorOrdenNatural();
+
+        //WHEN
+        dobleListaEnlazada.sort((Comparator<T>) comparator);
+
+        //THEN
+        assertEquals(1, dobleListaEnlazada.peekFirst().getItem());
+        assertEquals(2, dobleListaEnlazada.getAt(2).getItem());
+        assertEquals(3, dobleListaEnlazada.peekLast().getItem());
+    }
+
+    @Test
+    public void sortingList312Returns123(){
+        //GIVEN
+        DequeNode<Integer> firstNode = new DequeNode<>(3, null, null);
+        DequeNode<Integer> middleNode = new DequeNode<>(1, null, null);
+        DequeNode<Integer> lastNode = new DequeNode<>(2, null, null);
+
+        dobleListaEnlazada.append(firstNode);
+        dobleListaEnlazada.append(middleNode);
+        dobleListaEnlazada.append(lastNode);
+        ordenarNodoPorOrdenNatural comparator = new ordenarNodoPorOrdenNatural();
+
+        //WHEN
+        dobleListaEnlazada.sort((Comparator<T>) comparator);
+
+        //THEN
+        assertEquals(1, dobleListaEnlazada.peekFirst().getItem());
+        assertEquals(2, dobleListaEnlazada.getAt(2).getItem());
+        assertEquals(3, dobleListaEnlazada.peekLast().getItem());
+    }
+
+    @Test
+    public void sortingList231Returns123(){
+        //GIVEN
+        DequeNode<Integer> firstNode = new DequeNode<>(2, null, null);
+        DequeNode<Integer> middleNode = new DequeNode<>(3, null, null);
+        DequeNode<Integer> lastNode = new DequeNode<>(1, null, null);
+
+        dobleListaEnlazada.append(firstNode);
+        dobleListaEnlazada.append(middleNode);
+        dobleListaEnlazada.append(lastNode);
+        ordenarNodoPorOrdenNatural comparator = new ordenarNodoPorOrdenNatural();
+
+        //WHEN
+        dobleListaEnlazada.sort((Comparator<T>) comparator);
+
+        //THEN
+        assertEquals(1, dobleListaEnlazada.peekFirst().getItem());
+        assertEquals(2, dobleListaEnlazada.getAt(2).getItem());
+        assertEquals(3, dobleListaEnlazada.peekLast().getItem());
+    }
+
+    @Test
+    public void sortingList132Returns123(){
+        //GIVEN
+        DequeNode<Integer> firstNode = new DequeNode<>(1, null, null);
+        DequeNode<Integer> middleNode = new DequeNode<>(3, null, null);
+        DequeNode<Integer> lastNode = new DequeNode<>(2, null, null);
 
         dobleListaEnlazada.append(firstNode);
         dobleListaEnlazada.append(middleNode);
