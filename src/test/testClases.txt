@@ -57,28 +57,13 @@ Class: DoubleLinkedListQueueTest
     // Complex operations
 
     Test: findItem(T item)
+        from [],          find(1)  -> error
+        from [1],         find()   -> error
+        from [1]-[2]-[3], find(1)  -> [1]
+        from [1]-[2]-[3], find(2)  -> [2]
+        from [1]-[2]-[3], find(3)  -> [3]
+        from [1]-[2]-[3], find(4)  -> null
 
-     raiseAnExceptionWhenFindInAnEmptyList():
-     dobleListaEnlazada.find(1) -> throws error
-
-     raiseAnExceptionWhenFindANullItem():
-     dobleListaEnlazada.find(null) -> throws error
-
-     findNodeWhenIsAtFirstPosition()
-     dobleListaEnlazada <= [1]=[2]=[3]
-     dobleListaEnlazada.find(1) -> [1]
-
-     findNodeWhenIsAtSecondPosition
-     dobleListaEnlazada <= [1]=[2]=[3]
-     dobleListaEnlazada.find(2) -> [2]
-
-     findNodeWhenIsAtThirdPosition
-     dobleListaEnlazada <= [1]=[2]=[3]
-     dobleListaEnlazada.find(3) -> [3]
-
-     findNodeWhenIsNotThereReturnsNull
-     dobleListaEnlazada <= [1]=[2]=[3]
-     dobleListaEnlazada.find(4) -> null
 
     Test: delete()
     from [],          delete([])   -> error
