@@ -1,10 +1,10 @@
-package GaJaDo.DoubleLinkedListQueue;
+package gajado.doublelinkedlistqueue;
 
-import GaJaDo.DequeNode.DequeNode;
+import gajado.dequenode.DequeNode;
 
 import java.util.Comparator;
 
-public class ordenarNodoPorOrdenNatural implements Comparator<DequeNode> {
+public class OrdenarNodoPorOrdenNatural implements Comparator<DequeNode<?>> {
 
     @Override
     public int compare(DequeNode o1, DequeNode o2) {

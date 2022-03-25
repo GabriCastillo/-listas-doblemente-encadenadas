@@ -1,6 +1,6 @@
-package GaJaDo.Interface;
+package gajado.usedinterface;
 
-import GaJaDo.DequeNode.DequeNode;
+import gajado.dequenode.DequeNode;
 
 import java.util.Comparator;
 
