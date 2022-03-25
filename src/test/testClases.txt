@@ -81,7 +81,6 @@ Class: DoubleLinkedListQueueTest
 
     // Complex operations
 
-
     Test: getAt(int position)
         from [],          getAt(1)  -> error
         from [1],         getAt()   -> error
