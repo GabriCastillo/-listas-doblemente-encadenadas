@@ -14,7 +14,6 @@ package GaJaDo.DequeNode;
  * @param <T>
  */
 public class DequeNode<T> {
-
     private T item;
     private DequeNode<T> next;
     private DequeNode<T> previous;
